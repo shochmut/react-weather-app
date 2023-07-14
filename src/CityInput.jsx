@@ -9,7 +9,6 @@ import '@fontsource/roboto/700.css';
 function CityInput() {
 
   return (
-    <>
       <TextField 
         id='city-input' 
         variant='outlined' 
@@ -17,7 +16,6 @@ function CityInput() {
         color='success' 
         focused
       />
-    </>
   );
 }
 

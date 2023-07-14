@@ -6,7 +6,8 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import './CityInput.jsx';
+import TextField from '@mui/material/TextField';
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,7 +15,14 @@ function App() {
   return (
     <>
       <div>
-        <CityInput />
+        <h1>Hello</h1>
+        <TextField 
+        id='city-input' 
+        variant='outlined' 
+        fullwidth 
+        color='success' 
+        focused
+      />
       </div>
       
     </>
