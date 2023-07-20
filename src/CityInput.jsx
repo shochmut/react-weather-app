@@ -6,9 +6,8 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { GEODB_OPTIONS } from './geodbAPI.jsx';
-import { GEODB_URL } from './geodbAPI.jsx';
 import axios from 'axios';
+import { GEODB_OPTIONS } from './geodbAPI.jsx';
 
 function CityInput() {
   const [cities, setCities] = useState([]);
@@ -16,11 +15,17 @@ function CityInput() {
 
   useEffect(() => {
     console.log('useeffect has been called');
-    fetch(GEODB_URL, GEODB_OPTIONS)
-      .then((response) => response.json())
-      .then((json) => setCities(json.data));
-  }, [cities]);
+    fetchCities(); // here we fetch the api data
+  }, [input]);
   console.log(cities);
+
+  async function fetchCities() {
+    //This is the api fetching function to request city data from GeoDB using Axios
+    GEODB_OPTIONS.params.namePrefix = { input };
+    let response = await axios.request(GEODB_OPTIONS);
+    let temp = response.data.data.map((city) => city.name);
+    setCities(temp);
+  }
 
   return (
     <Stack sx={{ width: 300, margin: 'auto' }}>
