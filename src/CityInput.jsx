@@ -14,7 +14,6 @@ function CityInput() {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    console.log('useeffect has been called');
     fetchCities(); // here we fetch the api data
   }, [input]);
   console.log(cities);
