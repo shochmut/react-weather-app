@@ -21,7 +21,8 @@ function CityInput() {
 
   async function fetchCities() {
     //This is the api fetching function to request city data from GeoDB using Axios
-    GEODB_OPTIONS.params.namePrefix = { input };
+    GEODB_OPTIONS.params.namePrefix = input;
+    console.log(GEODB_OPTIONS);
     let response = await axios.request(GEODB_OPTIONS);
     let temp = response.data.data.map((city) => city.name);
     setCities(temp);
