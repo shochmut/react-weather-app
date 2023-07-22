@@ -32,7 +32,8 @@ function CityInput() {
   }
 
   async function fetchWeather() {
-    //This is the api fetching function to request weather data from 
+    //This is the api fetching function to request weather data from the OpenWeather api
+    
   }
 
   return (
