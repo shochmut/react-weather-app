@@ -5,5 +5,7 @@
   text-align: center;
 }
 
-#city-input {
+#city-input-box {
+  margin: 10px;
+  width: 100%;
 }
