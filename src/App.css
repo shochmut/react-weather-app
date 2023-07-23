@@ -3,9 +3,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: gray
 }
 
 #city-input-box {
   margin: 10px;
   width: 100%;
+}
+
+#app-wrapper {
 }

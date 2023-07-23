@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div id='app-wrapper'>
         <h1>Hello</h1>
         <CityInput />
         <WeatherDisplay />
