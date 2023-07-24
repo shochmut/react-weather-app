@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: gray
+  background-color: gray;
 }
 
 #city-input-box {
@@ -11,5 +11,3 @@
   width: 100%;
 }
 
-#app-wrapper {
-}

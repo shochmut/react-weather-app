@@ -9,14 +9,10 @@ function WeatherDisplay() {
   }, []);
 
   return (
-    <Stack
-      id="weather-display-city"
-      justifyContent="flex-start"
-      direction="row"
-      sx={{ width: 200, margin: 'auto' }}
-    >
-      <h1>Hello</h1>
-    </Stack>
+    <>
+      <h1>City</h1>
+      <h2>Date</h2>
+    </>
   );
 }
 

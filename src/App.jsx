@@ -8,17 +8,22 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CityInput from './Components/CityInput/CityInput.jsx';
 import WeatherDisplay from './Components/WeatherDisplay/WeatherDisplay.jsx';
+import Stack from '@mui/material/Stack';
 
 function App() {
   const [count, setCount] = useState(0);
 
+  const handleOnSearchChange = (value) => {
+    
+  }
+
   return (
     <>
-      <div id='app-wrapper'>
-        <h1>Hello</h1>
-        <CityInput />
+      <Stack id='app-wrapper' alignItems="flex-start" justifyContent='flex-start'>
+        <h1>Weather App</h1>
+        <CityInput onSearchChange={handleOnSearchChange}/>
         <WeatherDisplay />
-      </div>
+      </Stack>
     </>
   );
 }
