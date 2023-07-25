@@ -12,19 +12,22 @@ import Stack from '@mui/material/Stack';
 import { OPENWEATHER_KEY } from './openweatherAPI.jsx';
 import axios from 'axios';
 
-
 function App() {
-  useEffect((value) => {
-    fetchWeather(); // here we fetch the weather data
-  }, [value]);
+  const [weatherData, setWeatherData] = useState(null);
 
-  async function fetchWeather() {
+  async function fetchWeather(value) {
     //This is the api fetching function to request weather data from openweather using Axios
-    let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`);
+    console.log(value);
+    let response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
+    );
     console.log(response);
+    return response;
     // let temp = response.data.data.map((city) => city);
   }
-  const handleOnSearchChange = () => {};
+  const handleOnSearchChange = (value) => {
+    setWeatherData(fetchWeather(value));
+  };
 
   return (
     <>

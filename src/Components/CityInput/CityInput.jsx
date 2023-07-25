@@ -9,7 +9,7 @@ import '@fontsource/roboto/700.css';
 import axios from 'axios';
 import { GEODB_OPTIONS } from '../../geodbAPI.jsx';
 
-function CityInput() {
+const CityInput = ({ onSearchChange }) => {
   const [cities, setCities] = useState([]);
   const [input, setInput] = useState('');
   const [value, setValue] = useState('');
@@ -27,7 +27,7 @@ function CityInput() {
   }
 
   return (
-    <Stack id='city-input-box' sx={{ width: 300, margin: 'auto' }}>
+    <Stack id="city-input-box" sx={{ width: 300, margin: 'auto' }}>
       <Autocomplete
         id="city-input"
         freesolo
@@ -35,13 +35,16 @@ function CityInput() {
         options={cities}
         getOptionLabel={(city) => city.name}
         onInputChange={(e, newInput) => setInput(newInput)}
-        onChange={(e, newValue) => setValue(newValue)}
+        onChange={(e, newValue) => {
+          setValue(newValue);
+          onSearchChange(value);
+        }}
         renderInput={(params) => (
           <TextField {...params} label="City" color="success" fullwidth />
         )}
       />
     </Stack>
   );
-}
+};
 
 export default CityInput;
