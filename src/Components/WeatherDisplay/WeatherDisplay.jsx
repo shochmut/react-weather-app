@@ -3,14 +3,13 @@ import axios from 'axios';
 import Stack from '@mui/material/Stack';
 import './weatherdisplay.css';
 
-function WeatherDisplay() {
-  useEffect(() => {
-    //fetchWeather(); // here we fetch the weather data given selected city
-  }, []);
-
+function WeatherDisplay({ data }) {
+  
+  
+  
   return (
     <>
-      <h1>City</h1>
+      <h1>{data.city}</h1>
       <h2>Date</h2>
     </>
   );

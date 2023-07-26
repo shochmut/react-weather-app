@@ -36,7 +36,6 @@ const CityInput = ({ onSearchChange }) => {
         onInputChange={(e, newInput) => setInput(newInput)}
         onChange={(e, newValue) => {
           onSearchChange(newValue);
-          console.log(newValue)
         }}
         renderInput={(params) => (
           <TextField {...params} label="City" color="success" fullwidth />

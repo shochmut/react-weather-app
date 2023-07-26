@@ -17,10 +17,10 @@ function App() {
 
   async function fetchWeather(value) {
     //This is the api fetching function to request weather data from openweather using Axios
-    console.log(value);
     let response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
     );
+    response.data.city = value.city;
     console.log(response);
     return response;
     // let temp = response.data.data.map((city) => city);
@@ -38,7 +38,7 @@ function App() {
       >
         <h1>Weather App</h1>
         <CityInput onSearchChange={handleOnSearchChange} />
-        <WeatherDisplay />
+        {weatherData && <WeatherDisplay data={weatherData} />}
       </Stack>
     </>
   );
