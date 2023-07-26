@@ -12,7 +12,6 @@ import { GEODB_OPTIONS } from '../../geodbAPI.jsx';
 const CityInput = ({ onSearchChange }) => {
   const [cities, setCities] = useState([]);
   const [input, setInput] = useState('');
-  const [value, setValue] = useState('');
 
   useEffect(() => {
     fetchCities(); // here we fetch the api cities data
@@ -36,8 +35,8 @@ const CityInput = ({ onSearchChange }) => {
         getOptionLabel={(city) => city.name}
         onInputChange={(e, newInput) => setInput(newInput)}
         onChange={(e, newValue) => {
-          setValue(newValue);
-          onSearchChange(value);
+          onSearchChange(newValue);
+          console.log(newValue)
         }}
         renderInput={(params) => (
           <TextField {...params} label="City" color="success" fullwidth />
