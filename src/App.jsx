@@ -21,8 +21,7 @@ function App() {
       `https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
     );
     response.data.city = value.city;
-    console.log(response);
-    return response;
+    return {...response.data};
     // let temp = response.data.data.map((city) => city);
   }
   const handleOnSearchChange = (value) => {
