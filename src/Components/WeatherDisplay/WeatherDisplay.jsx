@@ -7,10 +7,19 @@ function WeatherDisplay({ data }) {
   console.log(data)
   return (
     <>
-      <p className="city">{data.city}</p>
-      <p className="weather-description">{data.weather[0].description}</p>
-      <h2>Date</h2>
-      <img alt='weather-icon' className='weather-icon' src={`icons/${data.weather[0].icon}.png`}/>
+      <Stack>
+        <h1 className="city">{data.city}</h1>
+        <h2>Date</h2>
+        <Stack direction="row">
+          <img alt='weather-icon' className='weather-icon' src={`icons/${data.weather[0].icon}.png`}/>
+          <Stack>
+            <h1 className="temp">{data.main.temp}</h1>
+            <p className="feels-like">Feels Like: {data.main.feels_like}</p>
+          </Stack>
+          
+        </Stack>
+      </Stack>
+
     </>
   );
 }
