@@ -7,9 +7,10 @@ function WeatherDisplay({ data }) {
   console.log(data)
   return (
     <>
-      <p classname="city">{data.city}</p>
-      <p classname="weather-description">{data.weather[0].description}</p>
+      <p className="city">{data.city}</p>
+      <p className="weather-description">{data.weather[0].description}</p>
       <h2>Date</h2>
+      <img alt='weather-icon' className='weather-icon' src={`icons/${data.weather[0].icon}.png`}/>
     </>
   );
 }

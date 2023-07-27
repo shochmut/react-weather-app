@@ -15,17 +15,20 @@ import axios from 'axios';
 function App() {
   const [weatherData, setWeatherData] = useState(null);
 
-  async function fetchWeather(value) {
+  const fetchWeather = async (value) => {
     //This is the api fetching function to request weather data from openweather using Axios
-    let response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
-    );
-    response.data.city = value.city;
-    return {...response.data};
-    // let temp = response.data.data.map((city) => city);
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
+      );
+      response.data.city = value.city;
+      setWeatherData(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
   const handleOnSearchChange = (value) => {
-    setWeatherData(fetchWeather(value));
+    fetchWeather(value);
   };
 
   return (
