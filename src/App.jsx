@@ -8,12 +8,14 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CityInput from './Components/CityInput/CityInput.jsx';
 import WeatherDisplay from './Components/WeatherDisplay/WeatherDisplay.jsx';
+import ForecastDisplay from './Components/ForecastDisplay/ForecastDisplay.jsx';
 import Stack from '@mui/material/Stack';
 import { OPENWEATHER_KEY } from './openweatherAPI.jsx';
 import axios from 'axios';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
 
   const fetchWeather = async (value) => {
     //This is the api fetching function to request weather data from openweather using Axios
@@ -27,8 +29,23 @@ function App() {
       console.log(err);
     }
   }
+
+  const fetchForecast = async (value) => {
+    //This is the api fetching function to request forecast data from openweather using Axios
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${value.latitude}&lon=${value.longitude}&appid=${OPENWEATHER_KEY.key}`
+      );
+      response.data.city = value.city;
+      setForecastData(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const handleOnSearchChange = (value) => {
     fetchWeather(value);
+    fetchForecast(value);
   }; 
 
   return (
@@ -41,6 +58,7 @@ function App() {
         <h1>Weather App</h1>
         <CityInput onSearchChange={handleOnSearchChange} />
         {weatherData && <WeatherDisplay data={weatherData} />}
+        {forecastData && <ForecastDisplay data={forecastData} />}
       </Stack>
     </>
   );
