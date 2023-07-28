@@ -3,6 +3,24 @@
 }
 
 .weather-box {
-  background-color: lightgray;
+  background-color: rgba(200,211,211,0.7);
+}
+
+.weather-text {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: small;
+  margin-top: 0;
+}
+
+.weather-icon {
+  background-color: rgba(200,211,211,0.5);
+  border-radius: 10px;
+  padding: 0px;
+  margin: 0px;
 }
 
